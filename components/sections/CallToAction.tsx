@@ -29,11 +29,6 @@ export default function CallToAction() {
             <p className="text-lg md:text-xl text-gastro-white-warm/80 mb-10 leading-relaxed font-medium">
               Obtén acceso total a todas nuestras herramientas por un único pago mensual. Sin contratos forzosos ni comisiones ocultas.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-gradient-to-r from-gastro-gold-main to-gastro-gold-light text-gastro-text-main px-8 py-4 rounded-2xl font-extrabold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_-10px_rgba(216,150,0,0.8)] cursor-pointer">
-                Comenzar ahora
-              </button>
-            </div>
           </div>
 
           {/* Lado Derecho: Pricing Card Animada */}
