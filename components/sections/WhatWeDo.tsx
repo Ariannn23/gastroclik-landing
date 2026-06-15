@@ -1,44 +1,86 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function WhatWeDo() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Capturamos el progreso del scroll respecto a este contenedor
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Transformaciones basadas en el scroll (Efecto Parallax Real)
+  // La imagen 1 sube, la imagen 2 baja y el texto cambia ligeramente de escala
+  const yImage1 = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const yImage2 = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const scaleText = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
+
   return (
-    <section className="py-24 px-8 border-t border-gastro-wine-sec/10 shadow-sm relative z-10 bg-gastro-white-warm">
+    <section ref={containerRef} className="py-32 px-8 border-t border-gastro-wine-sec/10 shadow-sm relative z-10 bg-gastro-white-warm overflow-hidden">
       <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        style={{ scale: scaleText }}
         className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16"
       >
         
         {/* Lado Izquierdo: Texto */}
-        <div className="lg:w-1/2 text-center lg:text-left">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-8 text-gastro-wine-main">
+        <div className="lg:w-1/2 text-center lg:text-left z-10">
+          <motion.h2 
+             initial={{ opacity: 0, x: -30 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.6 }}
+             className="text-4xl md:text-6xl font-extrabold mb-8 text-gastro-wine-main"
+          >
             ¿Qué Hacemos?
-          </h2>
-          <p className="text-lg md:text-xl text-gastro-text-sec leading-relaxed mb-6 font-medium">
+          </motion.h2>
+          <motion.p 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             transition={{ duration: 0.6, delay: 0.1 }}
+             className="text-lg md:text-xl text-gastro-text-sec leading-relaxed mb-6 font-medium"
+          >
             En GastroClick digitalizamos la experiencia gastronómica. Transformamos el menú físico de tu restaurante en una <span className="text-gastro-wine-sec font-bold">carta interactiva, rápida y atractiva</span> a la que tus clientes pueden acceder con un simple escaneo.
-          </p>
-          <p className="text-lg md:text-xl text-gastro-text-sec leading-relaxed font-medium">
+          </motion.p>
+          <motion.p 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             transition={{ duration: 0.6, delay: 0.2 }}
+             className="text-lg md:text-xl text-gastro-text-sec leading-relaxed font-medium"
+          >
             Simplificamos tus operaciones, <span className="text-gastro-gold-main font-bold text-xl">reducimos tus costos de impresión</span> y modernizamos la imagen de tu local en menos de 24 horas.
-          </p>
+          </motion.p>
         </div>
 
-        {/* Lado Derecho: Espacio para Imágenes */}
-        <div className="lg:w-1/2 w-full grid grid-cols-2 gap-4">
+        {/* Lado Derecho: Imágenes con Parallax ligado al scroll */}
+        <div className="lg:w-1/2 w-full relative h-[500px] md:h-[600px] hidden md:block">
+          
+          {/* Imagen 1 (Se mueve hacia ARRIBA mientras scrolleas hacia abajo) */}
           <motion.div 
-            whileHover={{ scale: 1.05 }}
-            className="bg-gastro-bg-card rounded-2xl h-48 md:h-64 border border-gastro-gold-light/30 shadow-lg flex items-center justify-center transform translate-y-8"
+            style={{ y: yImage1 }}
+            className="absolute left-0 top-16 w-[65%] h-64 md:h-80 bg-gradient-to-br from-gastro-wine-main to-gastro-wine-sec rounded-[2.5rem] shadow-2xl overflow-hidden flex items-center justify-center border-4 border-white z-20"
           >
-            <span className="text-gastro-text-sec text-sm font-bold">[Imagen 1]</span>
+             {/* Fondo de restaurante simulado con Unsplash */}
+             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-60 mix-blend-overlay hover:scale-110 transition-transform duration-700"></div>
+             <div className="absolute inset-0 bg-gastro-wine-main/30"></div>
+             <span className="relative z-10 text-white font-extrabold text-2xl drop-shadow-lg">Tu Restaurante</span>
           </motion.div>
+
+          {/* Imagen 2 (Se mueve hacia ABAJO mientras scrolleas hacia abajo) */}
           <motion.div 
-            whileHover={{ scale: 1.05 }}
-            className="bg-gastro-bg-card rounded-2xl h-48 md:h-64 border border-gastro-wine-sec/20 shadow-lg flex items-center justify-center"
+            style={{ y: yImage2 }}
+            className="absolute right-0 bottom-16 w-[60%] h-64 md:h-80 bg-gradient-to-br from-gastro-gold-main to-gastro-gold-light rounded-[2.5rem] shadow-2xl overflow-hidden flex items-center justify-center border-4 border-white z-10"
           >
-            <span className="text-gastro-text-sec text-sm font-bold">[Imagen 2]</span>
+             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-60 mix-blend-overlay hover:scale-110 transition-transform duration-700"></div>
+             <div className="absolute inset-0 bg-gastro-gold-main/20"></div>
+             <span className="relative z-10 text-gastro-wine-main font-extrabold text-2xl drop-shadow-md">Tu Menú</span>
           </motion.div>
+          
+          {/* Elemento decorativo dinámico */}
+          <motion.div 
+            style={{ scale: scrollYProgress, opacity: scrollYProgress }} 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gastro-gold-main/20 rounded-full blur-[50px] z-0 pointer-events-none"
+          ></motion.div>
         </div>
 
       </motion.div>
