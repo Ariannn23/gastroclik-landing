@@ -11,8 +11,8 @@ export default function Examples() {
         transition={{ duration: 0.8 }}
         className="max-w-6xl mx-auto"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gastro-wine-main">
-          [Sección: Ejemplos de Cartas]
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-center text-gastro-wine-main">
+          Inspírate con nuestras plantillas
         </h2>
         <p className="text-center text-gastro-text-sec mb-16 max-w-2xl mx-auto">
           Descubre cómo lucen nuestras plantillas principales aplicadas en casos reales.
