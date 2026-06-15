@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gastro-wine-main: #5A1617;
+  --color-gastro-wine-sec: #7A2424;
+  --color-gastro-gold-main: #D89600;
+  --color-gastro-gold-light: #E4A622;
+  --color-gastro-text-main: #3B1D1A;
+  --color-gastro-text-sec: #7B5A4A;
+  --color-gastro-bg-main: #FFF7EA;
+  --color-gastro-bg-card: #FFF1D8;
+  --color-gastro-white-warm: #FFFBF3;
+
+  --font-manrope: var(--font-manrope), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--color-gastro-bg-main);
+  --foreground: var(--color-gastro-text-main);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope);
+  overflow-x: hidden;
 }
