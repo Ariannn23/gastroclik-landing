@@ -1,4 +1,4 @@
-import { Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -52,9 +52,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs opacity-70">
         <p>&copy; {new Date().getFullYear()} GastroClick. Todos los derechos reservados.</p>
         <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-gastro-gold-light"><Instagram className="w-5 h-5" /></a>
-          <a href="#" className="hover:text-gastro-gold-light"><Facebook className="w-5 h-5" /></a>
-          <a href="#" className="hover:text-gastro-gold-light"><Linkedin className="w-5 h-5" /></a>
+          <a href="#" className="hover:text-gastro-gold-light">Instagram</a>
+          <a href="#" className="hover:text-gastro-gold-light">Facebook</a>
+          <a href="#" className="hover:text-gastro-gold-light">LinkedIn</a>
         </div>
       </div>
     </footer>
