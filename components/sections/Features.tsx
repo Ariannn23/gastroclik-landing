@@ -24,7 +24,7 @@ export default function Features() {
       </div>
         
       {/* Contenedor del Carrusel Infinito */}
-      <div className="relative w-full overflow-hidden pb-20">
+      <div className="relative w-full overflow-hidden pt-10 pb-20">
         {/* Degradados en los bordes para un efecto suave */}
         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gastro-white-warm to-transparent z-10 pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gastro-white-warm to-transparent z-10 pointer-events-none"></div>
