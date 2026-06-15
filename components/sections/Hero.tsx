@@ -50,8 +50,8 @@ export default function Hero() {
       </div>
 
       {/* Decoración de fondo */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gastro-gold-light/10 rounded-full blur-3xl -z-0 translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gastro-wine-main/5 rounded-full blur-3xl -z-0 -translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gastro-gold-light/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-gastro-wine-main/5 rounded-full blur-3xl -z-10"></div>
     </section>
   );
 }
