@@ -14,19 +14,21 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gastro-wine-main leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-gastro-text-main">
               Tu menú en un <br />
-              <span className="text-gastro-gold-main">solo click.</span>
+              <span className="bg-gradient-to-r from-gastro-gold-main to-gastro-wine-sec bg-clip-text text-transparent">
+                solo click.
+              </span>
             </h1>
-            <p className="text-xl text-gastro-text-sec mb-10 max-w-lg leading-relaxed">
+            <p className="text-xl text-gastro-text-sec mb-10 max-w-lg leading-relaxed font-medium">
               Crea cartas digitales interactivas, atractivas y fáciles de usar. Mejora la experiencia de tus comensales y moderniza tu restaurante hoy mismo.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-gastro-wine-main text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gastro-wine-sec hover:scale-105 transition-all shadow-lg hover:shadow-xl">
+            <div className="flex flex-col sm:flex-row gap-5">
+              <button className="bg-gradient-to-r from-gastro-wine-main to-gastro-wine-sec text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all shadow-[0_10px_40px_-10px_rgba(90,22,23,0.5)] hover:shadow-[0_15px_50px_-10px_rgba(90,22,23,0.7)]">
                 Crear mi carta gratis
               </button>
-              <button className="bg-transparent border-2 border-gastro-wine-main text-gastro-wine-main px-8 py-4 rounded-xl font-bold text-lg hover:bg-gastro-wine-main hover:text-white transition-all">
+              <button className="bg-white/50 backdrop-blur-md border border-gastro-wine-sec/30 text-gastro-wine-main px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gastro-wine-main hover:text-white transition-all shadow-sm hover:shadow-lg">
                 Ver ejemplos
               </button>
             </div>

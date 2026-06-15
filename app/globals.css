@@ -11,7 +11,7 @@
   --color-gastro-bg-card: #FFF1D8;
   --color-gastro-white-warm: #FFFBF3;
 
-  --font-manrope: var(--font-manrope), sans-serif;
+  --font-sans: var(--font-manrope), sans-serif;
 }
 
 :root {
