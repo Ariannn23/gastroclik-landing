@@ -25,7 +25,7 @@ export default function TargetAudience() {
   ];
 
   return (
-    <section className="py-32 px-8 border-b-2 border-dashed border-gray-400 bg-gastro-bg-main relative overflow-hidden">
+    <section className="py-32 px-8 border-t border-gastro-wine-sec/10 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)] bg-gastro-bg-main relative z-30 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}

@@ -1,54 +1,58 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function RegisterForm() {
   return (
-    <section className="py-24 px-8 border-b-2 border-dashed border-gray-400 bg-gastro-bg-card">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+    <section className="py-24 px-8 border-t border-gastro-wine-sec/10 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)] bg-gastro-bg-main relative z-50">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gastro-gold-light/20"
+      >
         
-        {/* Lado Izquierdo: Texto Informativo */}
-        <div className="lg:w-1/2">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gastro-wine-main">
-            Empieza a digitalizar tu restaurante hoy.
-          </h2>
-          <p className="text-lg text-gastro-text-sec mb-8">
-            Únete a cientos de restaurantes que ya han modernizado su atención al cliente. Déjanos tus datos y te ayudaremos a crear tu primera carta digital en minutos.
+        {/* Mitad Izquierda: Beneficios (Color Principal) */}
+        <div className="md:w-1/2 bg-gradient-to-br from-gastro-wine-main to-gastro-wine-sec p-12 text-gastro-white-warm flex flex-col justify-center">
+          <h2 className="text-3xl font-bold mb-6 text-gastro-gold-light">Únete a la revolución digital</h2>
+          <p className="mb-8 opacity-90 leading-relaxed">
+            Regístrate hoy mismo y descubre por qué cientos de restaurantes ya confían en GastroClick para gestionar sus menús.
           </p>
-          <ul className="space-y-4 text-gastro-text-main font-medium">
-            <li className="flex items-center gap-2">✓ Sin costos ocultos</li>
-            <li className="flex items-center gap-2">✓ Configuración en menos de 24 horas</li>
-            <li className="flex items-center gap-2">✓ Soporte personalizado</li>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <span className="text-gastro-gold-main font-bold">✓</span> Configuración en minutos
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-gastro-gold-main font-bold">✓</span> Escaneo QR ilimitado
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-gastro-gold-main font-bold">✓</span> Soporte técnico gratuito
+            </li>
           </ul>
         </div>
 
-        {/* Lado Derecho: El Formulario */}
-        <div className="lg:w-1/2 w-full">
-          <form className="bg-white p-8 md:p-10 rounded-3xl shadow-xl flex flex-col gap-6">
-            <h3 className="text-2xl font-bold text-gastro-wine-sec mb-2">Crear mi cuenta</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-bold text-gastro-text-sec mb-2">Nombre</label>
-                <input type="text" className="w-full border-2 border-gastro-bg-card bg-gastro-white-warm p-3 rounded-xl focus:outline-none focus:border-gastro-gold-main transition-colors" placeholder="Tu nombre" />
-              </div>
-              <div>
-                <label className="block text-sm font-bold text-gastro-text-sec mb-2">Restaurante</label>
-                <input type="text" className="w-full border-2 border-gastro-bg-card bg-gastro-white-warm p-3 rounded-xl focus:outline-none focus:border-gastro-gold-main transition-colors" placeholder="Ej. El Buen Sabor" />
-              </div>
+        {/* Mitad Derecha: Formulario */}
+        <div className="md:w-1/2 p-12 bg-white flex flex-col justify-center">
+          <h3 className="text-2xl font-bold mb-6 text-gastro-wine-main">Crear mi cuenta</h3>
+          <form className="flex flex-col gap-5">
+            <div>
+              <label className="block text-sm font-bold text-gastro-text-sec mb-2">Nombre del Restaurante</label>
+              <input type="text" className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gastro-gold-main focus:border-transparent transition-all" placeholder="Ej. El Buen Sabor" />
             </div>
-
             <div>
               <label className="block text-sm font-bold text-gastro-text-sec mb-2">Correo Electrónico</label>
-              <input type="email" className="w-full border-2 border-gastro-bg-card bg-gastro-white-warm p-3 rounded-xl focus:outline-none focus:border-gastro-gold-main transition-colors" placeholder="correo@ejemplo.com" />
+              <input type="email" className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gastro-gold-main focus:border-transparent transition-all" placeholder="correo@restaurante.com" />
             </div>
-
-            <button type="button" className="mt-4 bg-gastro-wine-main text-white font-bold py-4 rounded-xl hover:bg-gastro-wine-sec transition-colors shadow-lg hover:shadow-xl">
-              Solicitar Acceso
+            <button type="submit" className="mt-4 bg-gradient-to-r from-gastro-gold-main to-gastro-gold-light text-gastro-text-main font-bold px-6 py-4 rounded-xl shadow-lg hover:scale-[1.02] transition-transform">
+              Comenzar prueba gratis
             </button>
-            <p className="text-xs text-center text-gray-500 mt-2">
-              Al registrarte, aceptas nuestros términos y condiciones.
+            <p className="text-xs text-center text-gray-400 mt-4">
+              Sin tarjeta de crédito. Cancela en cualquier momento.
             </p>
           </form>
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }
