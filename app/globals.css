@@ -26,6 +26,10 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 12px;

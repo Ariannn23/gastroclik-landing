@@ -21,7 +21,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled 
           ? "bg-white/80 backdrop-blur-xl shadow-md py-4" 
           : "bg-transparent py-6"
@@ -41,7 +41,7 @@ export default function Navbar() {
           <a href="#" className="text-gastro-text-sec hover:text-gastro-wine-main transition-colors">Plantillas</a>
           <a href="#" className="text-gastro-text-sec hover:text-gastro-wine-main transition-colors">Precios</a>
           
-          <button className="bg-gradient-to-r from-gastro-wine-main to-gastro-wine-sec text-white px-6 py-2.5 rounded-xl hover:shadow-[0_8px_20px_-6px_rgba(90,22,23,0.6)] hover:scale-105 transition-all font-bold">
+          <button className="cursor-pointer bg-gradient-to-r from-gastro-wine-main to-gastro-wine-sec text-white px-6 py-2.5 rounded-xl hover:shadow-[0_8px_20px_-6px_rgba(90,22,23,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 font-bold">
             Ingresar
           </button>
         </div>
