@@ -1,20 +1,49 @@
 export default function Features() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center border-b-2 border-dashed border-gray-400 p-8">
-      <h2 className="text-3xl font-bold mb-8">[Sección 2: Características / Scroll Animations]</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-        <div className="h-64 border border-gray-500 flex items-center justify-center">
-          <p>Caja para texto descriptivo</p>
-        </div>
-        <div className="h-64 border border-gray-500 flex items-center justify-center bg-gray-200">
-          <p>Imagen que se escalará al hacer scroll</p>
-        </div>
+    <section className="py-24 px-8 border-b-2 border-dashed border-gray-400 bg-gastro-white-warm overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-gastro-wine-main">
+          [Sección: Funcionalidades - Carrusel]
+        </h2>
         
-        <div className="h-64 border border-gray-500 flex items-center justify-center bg-gray-200">
-          <p>Imagen que se escalará al hacer scroll</p>
-        </div>
-        <div className="h-64 border border-gray-500 flex items-center justify-center">
-          <p>Caja para texto descriptivo</p>
+        {/* Contenedor del Carrusel (Simulación) */}
+        <div className="flex gap-6 md:gap-8 overflow-x-auto pb-12 snap-x px-4 no-scrollbar">
+          
+          {/* Tarjeta 1 (Arriba) */}
+          <div className="min-w-[280px] h-80 bg-gastro-bg-card rounded-2xl shadow-lg border border-gastro-gold-light/20 flex flex-col items-center justify-center p-6 snap-center transform -translate-y-4">
+            <div className="w-16 h-16 bg-gastro-gold-light rounded-full mb-4"></div>
+            <h3 className="font-bold text-lg text-gastro-wine-sec mb-2">Escaneo QR</h3>
+            <p className="text-center text-sm text-gastro-text-sec">Acceso instantáneo sin descargar apps.</p>
+          </div>
+
+          {/* Tarjeta 2 (Abajo) */}
+          <div className="min-w-[280px] h-80 bg-gastro-bg-card rounded-2xl shadow-lg border border-gastro-gold-light/20 flex flex-col items-center justify-center p-6 snap-center transform translate-y-12">
+            <div className="w-16 h-16 bg-gastro-gold-light rounded-full mb-4"></div>
+            <h3 className="font-bold text-lg text-gastro-wine-sec mb-2">Tiempo Real</h3>
+            <p className="text-center text-sm text-gastro-text-sec">Actualiza precios y platos en segundos.</p>
+          </div>
+
+          {/* Tarjeta 3 (Arriba) */}
+          <div className="min-w-[280px] h-80 bg-gastro-bg-card rounded-2xl shadow-lg border border-gastro-gold-light/20 flex flex-col items-center justify-center p-6 snap-center transform -translate-y-4">
+            <div className="w-16 h-16 bg-gastro-gold-light rounded-full mb-4"></div>
+            <h3 className="font-bold text-lg text-gastro-wine-sec mb-2">Diseño Responsivo</h3>
+            <p className="text-center text-sm text-gastro-text-sec">Perfecto en cualquier dispositivo.</p>
+          </div>
+
+          {/* Tarjeta 4 (Abajo) */}
+          <div className="min-w-[280px] h-80 bg-gastro-bg-card rounded-2xl shadow-lg border border-gastro-gold-light/20 flex flex-col items-center justify-center p-6 snap-center transform translate-y-12">
+            <div className="w-16 h-16 bg-gastro-gold-light rounded-full mb-4"></div>
+            <h3 className="font-bold text-lg text-gastro-wine-sec mb-2">Estadísticas</h3>
+            <p className="text-center text-sm text-gastro-text-sec">Conoce los platos más visitados.</p>
+          </div>
+
+          {/* Tarjeta 5 (Arriba) */}
+          <div className="min-w-[280px] h-80 bg-gastro-bg-card rounded-2xl shadow-lg border border-gastro-gold-light/20 flex flex-col items-center justify-center p-6 snap-center transform -translate-y-4">
+            <div className="w-16 h-16 bg-gastro-gold-light rounded-full mb-4"></div>
+            <h3 className="font-bold text-lg text-gastro-wine-sec mb-2">Multi-idioma</h3>
+            <p className="text-center text-sm text-gastro-text-sec">Atrae turistas traduciendo tu menú.</p>
+          </div>
+
         </div>
       </div>
     </section>
