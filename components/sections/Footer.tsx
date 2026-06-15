@@ -1,3 +1,5 @@
+import { Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="bg-gastro-wine-main text-gastro-white-warm pt-16 pb-8 px-8">
@@ -36,11 +38,11 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-bold text-gastro-gold-light mb-4">Contáctanos</h3>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2">
-              <span className="text-gastro-gold-main">✉</span> hola@gastroclick.com
+            <li className="flex items-center gap-3">
+              <Mail className="text-gastro-gold-main w-5 h-5" /> hola@gastroclick.com
             </li>
-            <li className="flex items-center gap-2">
-              <span className="text-gastro-gold-main">📱</span> +34 600 000 000
+            <li className="flex items-center gap-3">
+              <Phone className="text-gastro-gold-main w-5 h-5" /> +34 600 000 000
             </li>
           </ul>
         </div>
@@ -50,9 +52,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs opacity-70">
         <p>&copy; {new Date().getFullYear()} GastroClick. Todos los derechos reservados.</p>
         <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-gastro-gold-light">Instagram</a>
-          <a href="#" className="hover:text-gastro-gold-light">Facebook</a>
-          <a href="#" className="hover:text-gastro-gold-light">LinkedIn</a>
+          <a href="#" className="hover:text-gastro-gold-light"><Instagram className="w-5 h-5" /></a>
+          <a href="#" className="hover:text-gastro-gold-light"><Facebook className="w-5 h-5" /></a>
+          <a href="#" className="hover:text-gastro-gold-light"><Linkedin className="w-5 h-5" /></a>
         </div>
       </div>
     </footer>
