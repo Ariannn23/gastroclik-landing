@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Columna 1: Marca */}
         <div className="col-span-1 md:col-span-1">
-          <h2 className="text-2xl font-bold text-gastro-gold-light mb-4">GastroClick</h2>
+          <h2 className="text-2xl font-extrabold text-gastro-gold-light mb-4">GastroClick</h2>
           <p className="text-sm text-gastro-bg-card opacity-80 leading-relaxed">
             La solución definitiva para digitalizar la carta de tu restaurante de manera rápida, elegante y sin complicaciones.
           </p>
@@ -15,7 +15,7 @@ export default function Footer() {
 
         {/* Columna 2: Enlaces Rápidos */}
         <div>
-          <h3 className="text-lg font-bold text-gastro-gold-light mb-4">Secciones</h3>
+          <h3 className="text-lg font-extrabold text-gastro-gold-light mb-4">Secciones</h3>
           <ul className="space-y-3 text-sm">
             <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Inicio</a></li>
             <li><a href="#" className="hover:text-gastro-gold-main transition-colors">¿Qué hacemos?</a></li>

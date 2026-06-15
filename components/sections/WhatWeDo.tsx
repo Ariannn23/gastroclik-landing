@@ -14,14 +14,14 @@ export default function WhatWeDo() {
         
         {/* Lado Izquierdo: Texto */}
         <div className="lg:w-1/2 text-center lg:text-left">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gastro-wine-main">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-8 text-gastro-wine-main">
             ¿Qué Hacemos?
           </h2>
-          <p className="text-lg md:text-xl text-gastro-text-sec leading-relaxed mb-6">
-            En GastroClick digitalizamos la experiencia gastronómica. Transformamos el menú físico de tu restaurante en una carta interactiva, rápida y atractiva a la que tus clientes pueden acceder con un simple escaneo.
+          <p className="text-lg md:text-xl text-gastro-text-sec leading-relaxed mb-6 font-medium">
+            En GastroClick digitalizamos la experiencia gastronómica. Transformamos el menú físico de tu restaurante en una <span className="text-gastro-wine-sec font-bold">carta interactiva, rápida y atractiva</span> a la que tus clientes pueden acceder con un simple escaneo.
           </p>
-          <p className="text-lg md:text-xl text-gastro-text-sec leading-relaxed">
-            Simplificamos tus operaciones, reducimos tus costos de impresión y modernizamos la imagen de tu local en menos de 24 horas.
+          <p className="text-lg md:text-xl text-gastro-text-sec leading-relaxed font-medium">
+            Simplificamos tus operaciones, <span className="text-gastro-gold-main font-bold text-xl">reducimos tus costos de impresión</span> y modernizamos la imagen de tu local en menos de 24 horas.
           </p>
         </div>
 
