@@ -1,14 +1,14 @@
 "use client";
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { useRef, useCallback } from "react";
-import { QrCode, Clock, Smartphone, BarChart3, Globe, Sparkles } from "lucide-react";
+import { QrCode, Clock, Smartphone, BarChart3, Globe } from "lucide-react";
 
 const cards = [
   {
     title: "Escaneo QR",
     desc: "Acceso instantáneo sin descargar apps ni registrarse.",
     icon: QrCode,
-    yOff: -0.06,
+    yOff: -0.12,
     glow: "#d89600",
     badge: "ACCESO",
     pattern: "dots",
@@ -17,7 +17,7 @@ const cards = [
     title: "Tiempo Real",
     desc: "Actualiza precios y platos en segundos desde tu panel.",
     icon: Clock,
-    yOff: 0.06,
+    yOff: 0.12,
     glow: "#7a2424",
     badge: "GESTIÓN",
     pattern: "lines",
@@ -26,7 +26,7 @@ const cards = [
     title: "Responsivo",
     desc: "Se adapta perfectamente a cualquier tamaño de celular.",
     icon: Smartphone,
-    yOff: -0.03,
+    yOff: -0.06,
     glow: "#4a90d9",
     badge: "DISEÑO",
     pattern: "grid",
@@ -35,7 +35,7 @@ const cards = [
     title: "Estadísticas",
     desc: "Conoce los platos más visitados y toma mejores decisiones.",
     icon: BarChart3,
-    yOff: 0.04,
+    yOff: 0.08,
     glow: "#059669",
     badge: "ANÁLISIS",
     pattern: "bars",
@@ -44,7 +44,7 @@ const cards = [
     title: "Multi-idioma",
     desc: "Atrae turistas traduciendo tu menú automáticamente.",
     icon: Globe,
-    yOff: -0.05,
+    yOff: -0.1,
     glow: "#7c3aed",
     badge: "ALCANCE",
     pattern: "circles",
@@ -117,12 +117,8 @@ function FeatureCard({
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
 
-  const rotateX = useSpring(useTransform(my, [0, 1], [7, -7]), { stiffness: 260, damping: 24 });
-  const rotateY = useSpring(useTransform(mx, [0, 1], [-7, 7]), { stiffness: 260, damping: 24 });
-  const shadowX = useSpring(useTransform(mx, [0, 1], [-10, 10]), { stiffness: 260, damping: 24 });
-  const shadowY = useSpring(useTransform(my, [0, 1], [10, -10]), { stiffness: 260, damping: 24 });
-  const glareX = useSpring(useTransform(mx, [0, 1], [0, 100]), { stiffness: 200, damping: 20 });
-  const glareY = useSpring(useTransform(my, [0, 1], [0, 100]), { stiffness: 200, damping: 20 });
+  const rotateX = useSpring(useTransform(my, [0, 1], [6, -6]), { stiffness: 260, damping: 26 });
+  const rotateY = useSpring(useTransform(mx, [0, 1], [-6, 6]), { stiffness: 260, damping: 26 });
 
   const handleMouse = useCallback(
     (e: React.MouseEvent) => {
@@ -154,35 +150,35 @@ function FeatureCard({
         transformStyle: "preserve-3d",
         translateY: yOff * 100,
       }}
-      className="group relative w-[320px] md:w-[360px] h-[340px] shrink-0"
+      className="group relative w-[320px] md:w-[360px] h-[320px] shrink-0"
     >
-      {/* Sombra dinámica que sigue el tilt */}
-      <motion.div
-        className="absolute -inset-4 rounded-[3rem] -z-10"
+      {/* Sombra flotante estática - sin animación para evitar vibración */}
+      <div
+        className="absolute -inset-4 rounded-[3rem] -z-10 transition-opacity duration-500"
         style={{
           background: `radial-gradient(ellipse at 50% 80%, ${glow}18, transparent 60%)`,
-          x: shadowX,
-          y: shadowY,
           filter: "blur(30px)",
+          opacity: 0.6,
+        }}
+      />
+      <div
+        className="absolute -inset-4 rounded-[3rem] -z-10 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(ellipse at 50% 80%, ${glow}28, transparent 60%)`,
+          filter: "blur(40px)",
+          opacity: 0,
         }}
       />
 
-      {/* Borde animated con glow */}
+      {/* Borde fijo con gradiente */}
       <div
-        className="absolute inset-0 rounded-[2.5rem] p-[1.5px] transition-all duration-500 group-hover:p-[2px]"
+        className="absolute inset-0 rounded-[2.5rem] overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${glow}44, ${glow}11 40%, transparent 70%)`,
+          padding: "1.5px",
         }}
       >
         <div className="relative w-full h-full rounded-[2.5rem] bg-gastro-white-warm overflow-hidden">
-          {/* Glare/shine que sigue el mouse */}
-          <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-            style={{
-              background: `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.4) 0%, transparent 60%)`,
-            }}
-          />
-
           {/* Patrón decorativo de fondo */}
           <PatternBackground pattern={pattern} glow={glow} />
 
@@ -190,7 +186,7 @@ function FeatureCard({
           <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-8 py-10">
             {/* Badge categoría */}
             <div
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.15em] mb-5 transition-all duration-500 group-hover:tracking-[0.2em]"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.15em] mb-5 transition-[tracking] duration-500 group-hover:tracking-[0.2em]"
               style={{
                 background: `${glow}12`,
                 color: glow,
@@ -200,36 +196,28 @@ function FeatureCard({
               {badge}
             </div>
 
-            {/* Ícono en círculo con glow */}
+            {/* Ícono en círculo */}
             <div className="relative mb-5">
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:w-16 group-hover:h-16"
+                className="w-14 h-14 rounded-full flex items-center justify-center transition-[transform,width,height] duration-500 group-hover:scale-110 group-hover:w-16 group-hover:h-16"
                 style={{
                   background: `linear-gradient(135deg, ${glow}18, ${glow}08)`,
                   boxShadow: `0 0 0 1.5px ${glow}22, 0 4px 12px ${glow}11`,
                 }}
               >
                 <Icon
-                  className="w-6 h-6 transition-all duration-500 group-hover:w-7 group-hover:h-7"
+                  className="w-6 h-6 transition-[transform] duration-500 group-hover:w-7 group-hover:h-7"
                   style={{ color: glow }}
                 />
               </div>
-              {/* Anillo decorativo exterior */}
-              <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700"
-                style={{
-                  border: `1.5px solid ${glow}22`,
-                  transform: "scale(1.25)",
-                }}
-              />
             </div>
 
             {/* Título */}
-            <h3 className="subtitle text-2xl font-bold text-gastro-wine-main mb-2.5 text-center relative z-10">
+            <h3 className="subtitle text-2xl font-bold text-gastro-wine-main mb-2.5 text-center">
               {title}
             </h3>
 
-            {/* Separador decorativo */}
+            {/* Separador decorativo - estático */}
             <div className="flex items-center gap-2 mb-3">
               <span className="block w-4 h-px" style={{ background: `${glow}44` }} />
               <span className="block w-1 h-1 rounded-full" style={{ background: glow }} />
@@ -237,24 +225,10 @@ function FeatureCard({
             </div>
 
             {/* Descripción */}
-            <p className="text-center text-gastro-text-sec text-[15px] leading-relaxed relative z-10 max-w-[260px]">
+            <p className="text-center text-gastro-text-sec text-[15px] leading-relaxed max-w-[260px]">
               {desc}
             </p>
           </div>
-
-          {/* Brillo de esquina hover */}
-          <div
-            className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-30 transition-all duration-700 pointer-events-none"
-            style={{
-              background: `radial-gradient(circle, ${glow}44, transparent 70%)`,
-            }}
-          />
-          <div
-            className="absolute -bottom-24 -left-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 pointer-events-none"
-            style={{
-              background: `radial-gradient(circle, ${glow}33, transparent 70%)`,
-            }}
-          />
         </div>
       </div>
     </motion.div>
