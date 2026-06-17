@@ -1,5 +1,5 @@
 "use client";
-import Scene3D from "@/components/3d/Scene3D";
+import Scene3D_Menu from "@/components/3d/Scene3D_Menu";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.3 }}
             className="w-full h-full"
           >
-            <Scene3D />
+            <Scene3D_Menu />
           </motion.div>
         </div>
       </div>
