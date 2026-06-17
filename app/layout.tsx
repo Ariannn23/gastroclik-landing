@@ -1,9 +1,15 @@
-import { Manrope } from "next/font/google";
+import { Manrope, Aclonica } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+});
+
+const aclonica = Aclonica({
+  variable: "--font-aclonica",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata = {
@@ -17,10 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${manrope.variable} h-full antialiased`}
-    >
+    <html lang="es" className={`${manrope.variable} ${aclonica.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );

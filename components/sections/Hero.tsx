@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gastro-bg-main overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-gastro-bg-main overflow-hidden">
+      {/* <section className="relative min-h-[calc(100vh-96px)] flex items-center bg-gastro-bg-main overflow-hidden"> */}
       <div className="max-w-7xl mx-auto px-8 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
-        
         {/* Lado Izquierdo: Textos y CTA */}
         <div className="lg:w-1/2 z-10 pt-16 lg:pt-0">
           <motion.div
@@ -21,9 +21,10 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-xl text-gastro-text-sec mb-10 max-w-lg leading-relaxed font-medium">
-              Crea cartas digitales interactivas, atractivas y fáciles de usar. Mejora la experiencia de tus comensales y moderniza tu restaurante hoy mismo.
+              Crea cartas digitales interactivas, atractivas y fáciles de usar. Mejora la
+              experiencia de tus comensales y moderniza tu restaurante hoy mismo.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-5">
               <button className="bg-gradient-to-r from-gastro-wine-main to-gastro-wine-sec text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all shadow-[0_10px_40px_-10px_rgba(90,22,23,0.5)] hover:shadow-[0_15px_50px_-10px_rgba(90,22,23,0.7)]">
                 Crear mi carta gratis
@@ -46,7 +47,6 @@ export default function Hero() {
             <Scene3D />
           </motion.div>
         </div>
-
       </div>
 
       {/* Decoración de fondo */}

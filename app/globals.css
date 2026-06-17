@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gastro-wine-main: #5A1617;
-  --color-gastro-wine-sec: #7A2424;
-  --color-gastro-gold-main: #D89600;
-  --color-gastro-gold-light: #E4A622;
-  --color-gastro-text-main: #3B1D1A;
-  --color-gastro-text-sec: #7B5A4A;
-  --color-gastro-bg-main: #FFF7EA;
-  --color-gastro-bg-card: #FFF1D8;
-  --color-gastro-white-warm: #FFFBF3;
+  --color-gastro-wine-main: #5a1617;
+  --color-gastro-wine-sec: #7a2424;
+  --color-gastro-gold-main: #d89600;
+  --color-gastro-gold-light: #e4a622;
+  --color-gastro-text-main: #3b1d1a;
+  --color-gastro-text-sec: #7b5a4a;
+  --color-gastro-bg-main: #fff7ea;
+  --color-gastro-bg-card: #fff1d8;
+  --color-gastro-white-warm: #fffbf3;
 
   --font-sans: var(--font-manrope), sans-serif;
 }
@@ -47,4 +47,13 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-gastro-wine-sec);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-aclonica);
 }

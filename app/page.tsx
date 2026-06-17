@@ -12,18 +12,18 @@ export default function Home() {
   return (
     <main className="relative w-full">
       <Navbar />
-      
+
       {/* Añadimos un padding top para compensar el Navbar fixed */}
-      <div className="pt-16">
+      <div>
         <Hero />
         <WhatWeDo />
         <Features />
         <TargetAudience />
         <Examples />
-        <ContactForm />
         <CallToAction />
+        <ContactForm />
       </div>
-      
+
       <Footer />
     </main>
   );
