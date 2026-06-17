@@ -70,7 +70,7 @@ export default function TargetAudience() {
                   <card.icon className="w-10 h-10 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-extrabold mb-4 text-gastro-wine-sec relative z-10">{card.title}</h3>
+                <h3 className="subtitle text-2xl font-extrabold mb-4 text-gastro-wine-sec relative z-10">{card.title}</h3>
                 <p className="text-gastro-text-sec text-lg leading-relaxed relative z-10 flex-grow">{card.desc}</p>
                 
                 {/* Flecha interactiva que aparece en Hover */}

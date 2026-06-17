@@ -55,7 +55,7 @@ export default function Features() {
                   <card.icon className="w-10 h-10 text-white relative z-10" />
                 </div>
                 
-                <h3 className="font-extrabold text-2xl text-gastro-wine-main mb-3 relative z-10">{card.title}</h3>
+                <h3 className="subtitle font-extrabold text-2xl text-gastro-wine-main mb-3 relative z-10">{card.title}</h3>
                 <p className="text-center text-gastro-text-sec text-lg leading-relaxed relative z-10">{card.desc}</p>
               </div>
             ))}
@@ -77,7 +77,7 @@ export default function Features() {
                   <card.icon className="w-10 h-10 text-white relative z-10" />
                 </div>
                 
-                <h3 className="font-extrabold text-2xl text-gastro-wine-main mb-3 relative z-10">{card.title}</h3>
+                <h3 className="subtitle font-extrabold text-2xl text-gastro-wine-main mb-3 relative z-10">{card.title}</h3>
                 <p className="text-center text-gastro-text-sec text-lg leading-relaxed relative z-10">{card.desc}</p>
               </div>
             ))}

@@ -50,7 +50,7 @@ export default function CallToAction() {
               </div>
 
               <div className="mb-8 mt-2">
-                <span className="text-5xl font-black text-gastro-wine-main" style={{ fontFamily: "var(--font-aclonica)" }}>S/. 30</span>
+                <span className="text-5xl font-black text-gastro-wine-main" style={{ fontFamily: "var(--font-heading)" }}>S/. 30</span>
                 <span className="text-gastro-text-sec font-bold"> /mes</span>
               </div>
 
