@@ -55,41 +55,59 @@ function PatternBackground({ pattern, glow }: { pattern: string; glow: string })
   return (
     <div className="absolute inset-0 opacity-[0.04] pointer-events-none overflow-hidden rounded-[2.5rem]">
       {pattern === "dots" && (
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(${glow} 1px, transparent 1px)`,
-          backgroundSize: "20px 20px",
-        }} />
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(${glow} 1px, transparent 1px)`,
+            backgroundSize: "20px 20px",
+          }}
+        />
       )}
       {pattern === "lines" && (
-        <div className="w-full h-full" style={{
-          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 12px, ${glow}22 12px, ${glow}22 13px)`,
-        }} />
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 12px, ${glow}22 12px, ${glow}22 13px)`,
+          }}
+        />
       )}
       {pattern === "grid" && (
-        <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(${glow}11 1px, transparent 1px), linear-gradient(90deg, ${glow}11 1px, transparent 1px)`,
-          backgroundSize: "24px 24px",
-        }} />
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `linear-gradient(${glow}11 1px, transparent 1px), linear-gradient(90deg, ${glow}11 1px, transparent 1px)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
       )}
       {pattern === "bars" && (
-        <div className="w-full h-full flex items-end justify-around pb-6 px-4" style={{ gap: "4px" }}>
+        <div
+          className="w-full h-full flex items-end justify-around pb-6 px-4"
+          style={{ gap: "4px" }}
+        >
           {[0.3, 0.7, 0.4, 0.9, 0.5, 0.8, 0.6].map((h, i) => (
-            <div key={i} style={{
-              width: "6px",
-              height: `${h * 60}%`,
-              background: glow,
-              borderRadius: "3px 3px 0 0",
-              opacity: 0.3,
-            }} />
+            <div
+              key={i}
+              style={{
+                width: "6px",
+                height: `${h * 60}%`,
+                background: glow,
+                borderRadius: "3px 3px 0 0",
+                opacity: 0.3,
+              }}
+            />
           ))}
         </div>
       )}
       {pattern === "circles" && (
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 20% 30%, ${glow}33 0px, transparent 8px),
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 30%, ${glow}33 0px, transparent 8px),
                             radial-gradient(circle at 80% 70%, ${glow}22 0px, transparent 12px),
                             radial-gradient(circle at 50% 50%, ${glow}11 0px, transparent 16px)`,
-        }} />
+          }}
+        />
       )}
     </div>
   );
@@ -192,7 +210,15 @@ function FeatureCard({
                 color: glow,
               }}
             >
-              <span style={{ width: 4, height: 4, borderRadius: "50%", background: glow, display: "inline-block" }} />
+              <span
+                style={{
+                  width: 4,
+                  height: 4,
+                  borderRadius: "50%",
+                  background: glow,
+                  display: "inline-block",
+                }}
+              />
               {badge}
             </div>
 
@@ -236,53 +262,58 @@ function FeatureCard({
 }
 
 export default function Features() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const bgX = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const bgOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.4, 1, 1, 0.4]);
-
-  const allCards = [...cards, ...cards]; // duplicado para seamless loop
+  const cards = [
+    {
+      title: "Escaneo QR",
+      desc: "Acceso instantáneo sin descargar apps ni registrarse.",
+      icon: QrCode,
+      transform: "-translate-y-4",
+    },
+    {
+      title: "Tiempo Real",
+      desc: "Actualiza precios y platos en segundos desde tu panel.",
+      icon: Clock,
+      transform: "translate-y-12",
+    },
+    {
+      title: "Responsivo",
+      desc: "Se adapta perfectamente a cualquier tamaño de celular.",
+      icon: Smartphone,
+      transform: "-translate-y-4",
+    },
+    {
+      title: "Estadísticas",
+      desc: "Conoce los platos más visitados y toma mejores decisiones.",
+      icon: BarChart3,
+      transform: "translate-y-12",
+    },
+    {
+      title: "Multi-idioma",
+      desc: "Atrae turistas traduciendo tu menú automáticamente.",
+      icon: Globe,
+      transform: "-translate-y-4",
+    },
+  ];
 
   return (
     <section
-      ref={sectionRef}
-      className="relative py-28 md:py-36 overflow-hidden bg-gradient-to-b from-gastro-bg-main via-gastro-bg-card to-gastro-bg-main"
+      className="py-32 px-8 overflow-hidden relative z-20"
+      style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-surface-2)" }}
     >
-      {/* Ambiente de fondo con parallax */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ opacity: bgOpacity }}
-      >
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full"
-          style={{
-            x: bgX,
-            background:
-              "radial-gradient(circle, rgba(216,150,0,0.08) 0%, transparent 70%)",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full"
-          style={{
-            x: useTransform(scrollYProgress, [0, 1], [0, 40]),
-            background:
-              "radial-gradient(circle, rgba(90,22,23,0.06) 0%, transparent 70%)",
-          }}
-        />
-      </motion.div>
+      {/* Glow central */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-[100%] blur-[100px] pointer-events-none z-0"
+        style={{ background: "rgba(217,168,32,0.08)" }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto mb-14 px-8">
+      {/* Título */}
+      <div className="max-w-7xl mx-auto mb-20 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-4xl md:text-6xl font-extrabold text-center text-gastro-wine-main"
+          className="text-4xl md:text-6xl font-extrabold text-center"
+          style={{ color: "var(--color-primary)" }}
         >
           Todo lo que necesitas para tu menú
         </motion.h2>
@@ -297,25 +328,68 @@ export default function Features() {
         </motion.p>
       </div>
 
-      {/* Carrusel */}
-      <div className="relative w-full overflow-hidden" style={{ perspective: "1200px" }}>
-        {/* Gradientes laterales */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 z-10 pointer-events-none bg-gradient-to-r from-gastro-bg-main to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 z-10 pointer-events-none bg-gradient-to-l from-gastro-bg-main to-transparent" />
+      {/* Carrusel infinito */}
+      <div className="relative w-full overflow-hidden pt-10 pb-20 z-10">
+        {/* Degradados de borde */}
+        <div
+          className="absolute top-0 left-0 w-32 md:w-64 h-full z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, var(--color-bg), transparent)" }}
+        />
+        <div
+          className="absolute top-0 right-0 w-32 md:w-64 h-full z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, var(--color-bg), transparent)" }}
+        />
 
         <motion.div
-          ref={trackRef}
           animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 50,
-            ease: "linear",
-          }}
-          className="flex w-max gap-6 md:gap-8"
-          style={{ transformStyle: "preserve-3d" }}
+          transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+          className="flex w-max"
         >
-          {allCards.map((card, i) => (
-            <FeatureCard key={i} {...card} />
+          {[1, 2].map((group) => (
+            <div key={group} className="flex gap-8 pr-8 shrink-0 w-max">
+              {cards.map((card, index) => (
+                <div
+                  key={`g${group}-${index}`}
+                  className={`group relative w-[320px] md:w-[360px] h-[300px] shrink-0 backdrop-blur-xl rounded-[2.5rem] shadow-xl flex flex-col items-center justify-center p-8 transition-all ${card.transform}`}
+                  style={{
+                    background: "rgba(248,238,220,0.7)",
+                    border: "1px solid rgba(233,215,184,0.8)",
+                  }}
+                >
+                  {/* Hover glow */}
+                  <div
+                    className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: "linear-gradient(to bottom, transparent, rgba(217,168,32,0.08))",
+                    }}
+                  />
+
+                  {/* Icono */}
+                  <div
+                    className="relative z-10 w-20 h-20 mb-6 rounded-2xl shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, var(--color-primary), var(--color-primary-2))",
+                    }}
+                  >
+                    <card.icon className="w-10 h-10 text-white relative z-10" />
+                  </div>
+
+                  <h3
+                    className="font-extrabold text-2xl mb-3 relative z-10"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    className="text-center text-lg leading-relaxed relative z-10"
+                    style={{ color: "var(--color-text-soft)" }}
+                  >
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           ))}
         </motion.div>
       </div>

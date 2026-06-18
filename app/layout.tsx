@@ -1,20 +1,36 @@
-import localFont from "next/font/local";
+import { Inter, Noto_Sans, DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const agrandir = localFont({
-  src: [
-    { path: "../public/fonts/Agrandir-Regular.otf", weight: "400" },
-    { path: "../public/fonts/Agrandir-Bold.otf", weight: "700" },
-  ],
-  variable: "--font-agrandir",
+// ── Inter: Cuerpo / UI ─────────────────────────────────────
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const newSpiritCondensed = localFont({
-  src: [
-    { path: "../public/fonts/NewSpiritCondensed-Regular.otf", weight: "400" },
-    { path: "../public/fonts/NewSpiritCondensed-Bold.otf", weight: "700" },
-  ],
-  variable: "--font-spirit",
+// ── Montserrat: Títulos y subtítulos ──────────────────────────
+const montserrat = Montserrat({
+  variable: "--font-headings",
+  subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
+  display: "swap",
+});
+
+// ── Noto Sans SemiCondensed Bold: Botones ────────────────────────
+const notoSans = Noto_Sans({
+  variable: "--font-buttons",
+  subsets: ["latin"],
+  weight: ["700"],
+  display: "swap",
+});
+
+// ── DM Sans 500: Párrafos ─────────────────────────────────────────
+const dmSans = DM_Sans({
+  variable: "--font-paragraph",
+  subsets: ["latin"],
+  weight: ["500"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -30,9 +46,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${agrandir.variable} ${newSpiritCondensed.variable} h-full antialiased`}
+      className={`${inter.variable} ${montserrat.variable} ${notoSans.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col h-full">{children}</body>
     </html>
   );
 }
