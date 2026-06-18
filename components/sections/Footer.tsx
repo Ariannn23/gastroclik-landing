@@ -1,60 +1,106 @@
+"use client";
 import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gastro-wine-main text-gastro-white-warm pt-16 pb-8 px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gastro-wine-sec pb-12 mb-8">
-        
-        {/* Columna 1: Marca */}
+    <footer
+      className="pt-16 pb-8 px-8"
+      style={{ background: "var(--color-primary)", color: "var(--color-text-light)" }}
+    >
+      <div
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 mb-8"
+        style={{ borderBottom: "1px solid var(--color-primary-2)" }}
+      >
+        {/* Marca */}
         <div className="col-span-1 md:col-span-1">
-          <h2 className="text-2xl font-extrabold text-gastro-gold-light mb-4">GastroClick</h2>
-          <p className="text-sm text-gastro-bg-card opacity-80 leading-relaxed">
-            La solución definitiva para digitalizar la carta de tu restaurante de manera rápida, elegante y sin complicaciones.
+          <h2
+            className="text-2xl font-extrabold mb-4"
+            style={{ color: "var(--color-accent-2)" }}
+          >
+            GastroClick
+          </h2>
+          <p className="text-sm leading-relaxed" style={{ color: "rgba(255,249,240,0.7)" }}>
+            La solución definitiva para digitalizar la carta de tu restaurante de manera rápida,
+            elegante y sin complicaciones.
           </p>
         </div>
 
-        {/* Columna 2: Enlaces Rápidos */}
+        {/* Secciones */}
         <div>
-          <h3 className="text-lg font-extrabold text-gastro-gold-light mb-4">Secciones</h3>
-          <ul className="space-y-3 text-sm">
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Inicio</a></li>
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">¿Qué hacemos?</a></li>
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Características</a></li>
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Ejemplos</a></li>
+          <h3 className="text-lg font-extrabold mb-4" style={{ color: "var(--color-accent-2)" }}>
+            Secciones
+          </h3>
+          <ul className="space-y-3 text-sm" style={{ color: "rgba(255,249,240,0.75)" }}>
+            {["Inicio", "¿Qué hacemos?", "Características", "Ejemplos"].map((item) => (
+              <li key={item}>
+                <a
+                  href="#"
+                  className="transition-colors"
+                  style={{ color: "inherit" }}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.75)")}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Columna 3: Soporte */}
+        {/* Soporte */}
         <div>
-          <h3 className="text-lg font-bold text-gastro-gold-light mb-4">Soporte</h3>
-          <ul className="space-y-3 text-sm">
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Preguntas Frecuentes</a></li>
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Términos y Condiciones</a></li>
-            <li><a href="#" className="hover:text-gastro-gold-main transition-colors">Política de Privacidad</a></li>
+          <h3 className="text-lg font-bold mb-4" style={{ color: "var(--color-accent-2)" }}>
+            Soporte
+          </h3>
+          <ul className="space-y-3 text-sm" style={{ color: "rgba(255,249,240,0.75)" }}>
+            {["Preguntas Frecuentes", "Términos y Condiciones", "Política de Privacidad"].map((item) => (
+              <li key={item}>
+                <a href="#" className="transition-colors" style={{ color: "inherit" }}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.75)")}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Columna 4: Contacto */}
+        {/* Contacto */}
         <div>
-          <h3 className="text-lg font-bold text-gastro-gold-light mb-4">Contáctanos</h3>
-          <ul className="space-y-3 text-sm">
+          <h3 className="text-lg font-bold mb-4" style={{ color: "var(--color-accent-2)" }}>
+            Contáctanos
+          </h3>
+          <ul className="space-y-3 text-sm" style={{ color: "rgba(255,249,240,0.75)" }}>
             <li className="flex items-center gap-3">
-              <Mail className="text-gastro-gold-main w-5 h-5" /> hola@gastroclick.com
+              <Mail className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
+              hola@gastroclick.com
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="text-gastro-gold-main w-5 h-5" /> +34 600 000 000
+              <Phone className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
+              +51 984 221 508
             </li>
           </ul>
         </div>
-
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs opacity-70">
-        <p>&copy; {new Date().getFullYear()} GastroClick. Todos los derechos reservados.</p>
+      <div
+        className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs"
+        style={{ color: "rgba(255,249,240,0.5)" }}
+      >
+        <p>© {new Date().getFullYear()} GastroClick. Todos los derechos reservados.</p>
         <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-gastro-gold-light">Instagram</a>
-          <a href="#" className="hover:text-gastro-gold-light">Facebook</a>
-          <a href="#" className="hover:text-gastro-gold-light">LinkedIn</a>
+          {["Instagram", "Facebook", "LinkedIn"].map((social) => (
+            <a
+              key={social}
+              href="#"
+              className="transition-colors"
+              onMouseEnter={e => ((e.target as HTMLElement).style.color = "var(--color-accent-2)")}
+              onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.5)")}
+            >
+              {social}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

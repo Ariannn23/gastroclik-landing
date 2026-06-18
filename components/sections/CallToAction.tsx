@@ -12,67 +12,116 @@ export default function CallToAction() {
   ];
 
   return (
-    <section className="py-32 px-8 relative overflow-hidden bg-gastro-white-warm">
+    <section
+      className="py-32 px-8 relative overflow-hidden"
+      style={{ background: "var(--color-bg)" }}
+    >
+      {/* Glow decorativo */}
+      <div
+        className="absolute top-1/2 left-10 w-64 h-64 rounded-full blur-3xl -translate-y-1/2 z-0 pointer-events-none"
+        style={{ background: "rgba(217,168,32,0.15)" }}
+      />
+
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-br from-gastro-wine-main to-gastro-wine-sec rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(90,22,23,0.6)] flex flex-col lg:flex-row overflow-hidden relative"
+          className="rounded-[3rem] flex flex-col lg:flex-row overflow-hidden relative"
+          style={{
+            background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-2))",
+            boxShadow: "0 20px 60px -15px rgba(90,22,23,0.55)",
+          }}
         >
-          {/* Lado Izquierdo: Texto y CTA */}
+          {/* Izquierdo: texto */}
           <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center relative z-10">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-gastro-white-warm leading-tight">
+            <h2
+              className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight"
+              style={{ color: "var(--color-text-light)" }}
+            >
               ¿Listo para dar el siguiente <br className="hidden md:block" /> paso con{" "}
-              <span className="text-gastro-gold-main">GastroClick</span>?
+              <span style={{ color: "var(--color-accent-2)" }}>GastroClick</span>?
             </h2>
-            <p className="text-lg md:text-xl text-gastro-white-warm/80 mb-10 leading-relaxed font-medium">
+            <p
+              className="text-lg md:text-xl mb-10 leading-relaxed font-medium"
+              style={{ color: "rgba(255,249,240,0.8)" }}
+            >
               Obtén acceso total a todas nuestras herramientas por un único pago mensual. Sin
               contratos forzosos ni comisiones ocultas.
             </p>
           </div>
 
-          {/* Lado Derecho: Pricing Card Animada */}
-          <div className="lg:w-1/2 relative bg-gastro-bg-main p-12 flex items-center justify-center lg:border-l border-gastro-wine-main/20">
-            {/* Resplandor detrás de la tarjeta */}
+          {/* Derecho: pricing card */}
+          <div
+            className="lg:w-1/2 relative p-12 flex items-center justify-center"
+            style={{
+              background: "var(--color-bg)",
+              borderLeft: "1px solid rgba(90,22,23,0.15)",
+            }}
+          >
+            {/* Glow behind card */}
             <div className="absolute inset-0 flex items-center justify-center z-0 overflow-hidden pointer-events-none">
-              <div className="w-64 h-64 md:w-96 md:h-96 bg-gastro-gold-main/20 rounded-full blur-[80px]"></div>
+              <div
+                className="w-64 h-64 md:w-96 md:h-96 rounded-full blur-[80px]"
+                style={{ background: "rgba(217,168,32,0.18)" }}
+              />
             </div>
 
             <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl p-8 md:p-10 relative z-10 border border-gastro-gold-light/30"
+              className="w-full max-w-sm rounded-[2rem] shadow-2xl p-8 md:p-10 relative z-10"
+              style={{
+                background: "#fff",
+                border: "1px solid rgba(217,168,32,0.3)",
+              }}
             >
-              <div className="absolute top-0 right-0 bg-gastro-gold-main text-gastro-text-main font-bold text-sm px-5 py-1 rounded-bl-xl rounded-tr-[2rem] shadow-md">
+              {/* Badge */}
+              <div
+                className="absolute top-0 right-0 font-bold text-sm px-5 py-1 rounded-bl-xl rounded-tr-[2rem] shadow-md"
+                style={{ background: "var(--color-accent)", color: "var(--color-text)" }}
+              >
                 Plan Único
               </div>
 
+              {/* Precio */}
               <div className="mb-8 mt-2">
-                <span className="text-5xl font-black text-gastro-wine-main" style={{ fontFamily: "var(--font-aclonica)" }}>S/. 30</span>
-                <span className="text-gastro-text-sec font-bold"> /mes</span>
+                <span
+                  className="text-5xl font-black"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  S/. 30
+                </span>
+                <span className="font-bold" style={{ color: "var(--color-text-soft)" }}> /mes</span>
               </div>
 
+              {/* Features */}
               <ul className="space-y-4 mb-8">
                 {planFeatures.map((feat, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-gastro-gold-main shrink-0 mt-0.5" />
-                    <span className="text-gastro-text-main font-medium leading-tight">{feat}</span>
+                    <CheckCircle2 className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "var(--color-accent)" }} />
+                    <span className="font-medium leading-tight" style={{ color: "var(--color-text)" }}>{feat}</span>
                   </li>
                 ))}
               </ul>
 
-              <button className="w-full bg-gastro-wine-main text-white font-bold py-4 rounded-xl hover:bg-gastro-wine-sec transition-colors shadow-lg hover:shadow-xl active:scale-95 cursor-pointer">
+              {/* Botón */}
+              <button
+                className="w-full font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+                style={{
+                  background: "var(--color-primary)",
+                  color: "var(--color-text-light)",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = "var(--color-primary-2)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "var(--color-primary)")}
+              >
                 Elegir este plan
               </button>
             </motion.div>
           </div>
         </motion.div>
       </div>
-
-      {/* Círculos decorativos de fondo global */}
-      <div className="absolute top-1/2 left-10 w-64 h-64 bg-gastro-gold-light/20 rounded-full blur-3xl -translate-y-1/2 z-0 pointer-events-none"></div>
     </section>
   );
 }

@@ -1,57 +1,194 @@
 "use client";
-import Scene3D_Menu from "@/components/3d/Scene3D_Menu";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import HeroBg from "@/public/images/hero4k.png";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-gastro-bg-main overflow-hidden">
-      {/* <section className="relative min-h-[calc(100vh-96px)] flex items-center bg-gastro-bg-main overflow-hidden"> */}
-      <div className="max-w-7xl mx-auto px-8 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
-        {/* Lado Izquierdo: Textos y CTA */}
-        <div className="lg:w-1/2 z-10 pt-16 lg:pt-0">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-gastro-text-main">
-              Tu menú en un <br />
-              <span className="bg-gradient-to-r from-gastro-gold-main to-gastro-wine-sec bg-clip-text text-transparent">
-                solo click.
-              </span>
-            </h1>
-            <p className="text-xl text-gastro-text-sec mb-10 max-w-lg leading-relaxed font-medium">
-              Crea cartas digitales interactivas, atractivas y fáciles de usar. Mejora la
-              experiencia de tus comensales y moderniza tu restaurante hoy mismo.
-            </p>
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
 
-            <div className="flex flex-col sm:flex-row gap-5">
-              <button className="bg-gradient-to-r from-gastro-wine-main to-gastro-wine-sec text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all shadow-[0_10px_40px_-10px_rgba(90,22,23,0.5)] hover:shadow-[0_15px_50px_-10px_rgba(90,22,23,0.7)]">
-                Crear mi carta gratis
-              </button>
-              <button className="bg-white/50 backdrop-blur-md border border-gastro-wine-sec/30 text-gastro-wine-main px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gastro-wine-main hover:text-white transition-all shadow-sm hover:shadow-lg">
-                Ver ejemplos
-              </button>
-            </div>
-          </motion.div>
+      {/* ── Imagen de fondo con Ken Burns ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="animate-ken-burns w-full h-full">
+          <Image
+            src={HeroBg}
+            alt="Restaurante elegante de fondo"
+            fill
+            priority
+            quality={95}
+            className="object-cover object-center"
+          />
         </div>
-
-        {/* Lado Derecho: Canvas 3D */}
-        <div className="lg:w-1/2 w-full h-[500px] lg:h-[700px] relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="w-full h-full"
-          >
-            <Scene3D_Menu />
-          </motion.div>
-        </div>
+        {/* Overlay oscuro cálido recomendado */}
+        <div className="absolute inset-0"
+          style={{ background: "linear-gradient(180deg, rgba(25,10,8,0.62) 0%, rgba(25,10,8,0.38) 50%, rgba(25,10,8,0.70) 100%)" }}
+        />
+        {/* Tinte borgoña desde abajo */}
+        <div className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(90,22,23,0.45) 0%, transparent 55%)" }}
+        />
       </div>
 
-      {/* Decoración de fondo */}
-      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gastro-gold-light/10 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-gastro-wine-main/5 rounded-full blur-3xl -z-10"></div>
+      {/* ── Navbar integrado ── */}
+      <nav className="relative z-20 w-full">
+        <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="cursor-pointer"
+          >
+            <span
+              className="text-2xl font-extrabold tracking-tight drop-shadow-md"
+              style={{ color: "var(--color-text-light)" }}
+            >
+              GastroClick
+              <sup className="text-xs font-normal align-super opacity-70">®</sup>
+            </span>
+          </motion.div>
+
+          {/* Links */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="hidden md:flex items-center gap-8"
+          >
+            {["Inicio", "Características", "Plantillas", "Precios"].map((link, i) => (
+              <a
+                key={link}
+                href="#"
+                className="text-sm transition-colors duration-200"
+                style={{
+                  color: i === 0 ? "var(--color-accent-2)" : "rgba(255,249,240,0.65)",
+                  fontWeight: i === 0 ? 700 : 500,
+                }}
+              >
+                {link}
+              </a>
+            ))}
+          </motion.div>
+
+          {/* CTA Navbar */}
+          <motion.button
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="liquid-glass-dark rounded-full px-6 py-2.5 text-sm font-semibold hover:scale-[1.04] transition-transform hidden md:block"
+            style={{ color: "var(--color-text-light)" }}
+          >
+            Ingresar
+          </motion.button>
+        </div>
+      </nav>
+
+      {/* ── Contenido principal ── */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pb-24">
+
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="liquid-glass-dark rounded-full px-5 py-2 mb-10 text-xs font-semibold tracking-widest uppercase"
+          style={{ color: "var(--color-accent-2)" }}
+        >
+          ✦ &nbsp;Cartas digitales para restaurantes modernos &nbsp;✦
+        </motion.div>
+
+        {/* Título — Inter Black */}
+        <motion.h1
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
+          className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-[-3px] mb-8 max-w-4xl drop-shadow-lg uppercase"
+          style={{ color: "var(--color-text-light)" }}
+        >
+          Tu menú en un{" "}
+          <em className="not-italic" style={{ color: "var(--color-accent-2)" }}>
+            solo click.
+          </em>
+        </motion.h1>
+
+        {/* Subtexto */}
+        <motion.p
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.25 }}
+          className="text-lg sm:text-xl max-w-xl leading-relaxed mb-14"
+          style={{ color: "rgba(255,249,240,0.72)" }}
+        >
+          Crea cartas digitales interactivas y elegantes. Moderniza tu restaurante
+          y deleita a tus comensales con una experiencia que enamora.
+        </motion.p>
+
+        {/* Botones */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.45 }}
+          className="flex flex-col sm:flex-row gap-4 items-center"
+        >
+          {/* Principal: dorado */}
+          <button
+            className="rounded-full px-10 py-4 hover:scale-[1.04] transition-all"
+            style={{
+              background: "var(--color-accent)",
+              color: "var(--color-text)",
+              boxShadow: "0 0 30px rgba(217,168,32,0.45)",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--color-accent-2)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--color-accent)")}
+          >
+            Crear mi carta gratis
+          </button>
+
+          {/* Secundario: glass */}
+          <button
+            className="liquid-glass-dark rounded-full px-10 py-4 hover:scale-[1.04] transition-transform"
+            style={{ color: "var(--color-text-light)" }}
+          >
+            Ver ejemplos →
+          </button>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.7 }}
+          className="flex gap-10 mt-16"
+        >
+          {[
+            { num: "+500", label: "Restaurantes" },
+            { num: "+12k", label: "Menús creados" },
+            { num: "4.9★", label: "Valoración" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p
+                className="text-2xl font-bold"
+                style={{ color: "var(--color-accent-2)" }}
+              >
+                {stat.num}
+              </p>
+              <p
+                className="text-xs mt-0.5 uppercase tracking-wider"
+                style={{ color: "rgba(255,249,240,0.5)" }}
+              >
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Transición suave hacia la siguiente sección */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 z-10"
+        style={{ background: "linear-gradient(to top, var(--color-bg), transparent)" }}
+      />
     </section>
   );
 }
