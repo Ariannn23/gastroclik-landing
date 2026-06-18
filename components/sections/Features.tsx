@@ -1,53 +1,80 @@
 "use client";
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { useRef, useCallback } from "react";
-import { QrCode, Clock, Smartphone, BarChart3, Globe } from "lucide-react";
+import { Palette, List, Image, Star, QrCode, MessageCircle, MapPin, RefreshCw } from "lucide-react";
 
 const cards = [
   {
-    title: "Escaneo QR",
-    desc: "Acceso instantáneo sin descargar apps ni registrarse.",
-    icon: QrCode,
+    title: "Identidad de Marca",
+    desc: "Nombre, logotipo y colores personalizados de tu negocio.",
+    icon: Palette,
     yOff: -0.12,
     glow: "#d89600",
-    badge: "ACCESO",
+    badge: "MARCA",
     pattern: "dots",
   },
   {
-    title: "Tiempo Real",
-    desc: "Actualiza precios y platos en segundos desde tu panel.",
-    icon: Clock,
+    title: "Menú por Categorías",
+    desc: "Clasificación limpia (Entradas, Platos Fuertes, Bebidas, Postres, etc.).",
+    icon: List,
     yOff: 0.12,
     glow: "#7a2424",
-    badge: "GESTIÓN",
+    badge: "CATEGORÍAS",
     pattern: "lines",
   },
   {
-    title: "Responsivo",
-    desc: "Se adapta perfectamente a cualquier tamaño de celular.",
-    icon: Smartphone,
+    title: "Fichas de Productos",
+    desc: "Fotos en alta calidad, descripción detallada y precios claros.",
+    icon: Image,
     yOff: -0.06,
     glow: "#4a90d9",
-    badge: "DISEÑO",
+    badge: "PRODUCTOS",
     pattern: "grid",
   },
   {
-    title: "Estadísticas",
-    desc: "Conoce los platos más visitados y toma mejores decisiones.",
-    icon: BarChart3,
+    title: "Destacados y Recomendados",
+    desc: "Sección especial para los platos favoritos o sugerencias del chef.",
+    icon: Star,
     yOff: 0.08,
     glow: "#059669",
-    badge: "ANÁLISIS",
+    badge: "DESTACADOS",
     pattern: "bars",
   },
   {
-    title: "Multi-idioma",
-    desc: "Atrae turistas traduciendo tu menú automáticamente.",
-    icon: Globe,
+    title: "Acceso Inmediato QR",
+    desc: "Códigos QR para las mesas para que el comensal acceda al instante.",
+    icon: QrCode,
     yOff: -0.1,
     glow: "#7c3aed",
-    badge: "ALCANCE",
+    badge: "ACCESO",
     pattern: "circles",
+  },
+  {
+    title: "Botón WhatsApp",
+    desc: "Botón flotante para conectar al cliente con tu canal de ventas en un clic.",
+    icon: MessageCircle,
+    yOff: 0.06,
+    glow: "#25D366",
+    badge: "WHATAPP",
+    pattern: "dots",
+  },
+  {
+    title: "Horarios y Datos",
+    desc: "Ubicación exacta, horarios de atención y enlaces a redes sociales integrados.",
+    icon: MapPin,
+    yOff: -0.08,
+    glow: "#d89600",
+    badge: "DATOS",
+    pattern: "grid",
+  },
+  {
+    title: "Actualización Ágil",
+    desc: "Actualizaciones simples del menú y soporte cercano personalizado.",
+    icon: RefreshCw,
+    yOff: 0.1,
+    glow: "#7a2424",
+    badge: "AGILIDAD",
+    pattern: "bars",
   },
 ];
 
@@ -124,7 +151,7 @@ function FeatureCard({
 }: {
   title: string;
   desc: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   yOff: number;
   glow: string;
   badge: string;
@@ -264,34 +291,52 @@ function FeatureCard({
 export default function Features() {
   const cards = [
     {
-      title: "Escaneo QR",
-      desc: "Acceso instantáneo sin descargar apps ni registrarse.",
+      title: "Identidad de Marca",
+      desc: "Nombre, logotipo y colores personalizados de tu negocio.",
+      icon: Palette,
+      transform: "-translate-y-4",
+    },
+    {
+      title: "Menú por Categorías",
+      desc: "Clasificación limpia (Entradas, Platos Fuertes, Bebidas, Postres, etc.).",
+      icon: List,
+      transform: "translate-y-12",
+    },
+    {
+      title: "Fichas de Productos",
+      desc: "Fotos en alta calidad, descripción detallada y precios claros.",
+      icon: Image,
+      transform: "-translate-y-4",
+    },
+    {
+      title: "Destacados y Recomendados",
+      desc: "Sección especial para los platos favoritos o sugerencias del chef.",
+      icon: Star,
+      transform: "translate-y-12",
+    },
+    {
+      title: "Acceso Inmediato QR",
+      desc: "Códigos QR para las mesas para que el comensal acceda al instante.",
       icon: QrCode,
       transform: "-translate-y-4",
     },
     {
-      title: "Tiempo Real",
-      desc: "Actualiza precios y platos en segundos desde tu panel.",
-      icon: Clock,
+      title: "Botón WhatsApp",
+      desc: "Botón flotante para conectar al cliente con tu canal de ventas en un clic.",
+      icon: MessageCircle,
       transform: "translate-y-12",
     },
     {
-      title: "Responsivo",
-      desc: "Se adapta perfectamente a cualquier tamaño de celular.",
-      icon: Smartphone,
+      title: "Horarios y Datos",
+      desc: "Ubicación exacta, horarios de atención y enlaces a redes sociales integrados.",
+      icon: MapPin,
       transform: "-translate-y-4",
     },
     {
-      title: "Estadísticas",
-      desc: "Conoce los platos más visitados y toma mejores decisiones.",
-      icon: BarChart3,
+      title: "Actualización Ágil",
+      desc: "Actualizaciones simples del menú y soporte cercano personalizado.",
+      icon: RefreshCw,
       transform: "translate-y-12",
-    },
-    {
-      title: "Multi-idioma",
-      desc: "Atrae turistas traduciendo tu menú automáticamente.",
-      icon: Globe,
-      transform: "-translate-y-4",
     },
   ];
 
@@ -312,7 +357,7 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-extrabold text-center"
+          className="text-4xl md:text-5xl font-extrabold text-center"
           style={{ color: "var(--color-primary)" }}
         >
           Todo lo que necesitas para tu menú
@@ -322,7 +367,7 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center text-gastro-text-sec mt-4 text-lg max-w-xl mx-auto"
+          className="text-center text-gastro-text-sec mt-4 text-base max-w-xl mx-auto"
         >
           Herramientas diseñadas para que tu carta digital brille.
         </motion.p>
@@ -350,7 +395,7 @@ export default function Features() {
               {cards.map((card, index) => (
                 <div
                   key={`g${group}-${index}`}
-                  className={`group relative w-[320px] md:w-[360px] h-[300px] shrink-0 backdrop-blur-xl rounded-[2.5rem] shadow-xl flex flex-col items-center justify-center p-8 transition-all ${card.transform}`}
+                  className={`group relative w-[320px] md:w-[360px] h-[300px] shrink-0 backdrop-blur-xl rounded-[2.5rem] shadow-xl flex flex-col items-center text-center pt-14 pb-8 px-8 transition-all ${card.transform}`}
                   style={{
                     background: "rgba(248,238,220,0.7)",
                     border: "1px solid rgba(233,215,184,0.8)",
@@ -366,7 +411,7 @@ export default function Features() {
 
                   {/* Icono */}
                   <div
-                    className="relative z-10 w-20 h-20 mb-6 rounded-2xl shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"
+                    className="relative z-10 w-20 h-20 mb-8 rounded-2xl shadow-lg flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"
                     style={{
                       background:
                         "linear-gradient(135deg, var(--color-primary), var(--color-primary-2))",
@@ -376,13 +421,13 @@ export default function Features() {
                   </div>
 
                   <h3
-                    className="font-extrabold text-2xl mb-3 relative z-10"
+                    className="font-extrabold text-xl mb-3 relative z-10 text-center"
                     style={{ color: "var(--color-primary)" }}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className="text-center text-lg leading-relaxed relative z-10"
+                    className="text-center text-base leading-relaxed relative z-10"
                     style={{ color: "var(--color-text-soft)" }}
                   >
                     {card.desc}
