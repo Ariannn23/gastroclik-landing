@@ -60,17 +60,17 @@ export default function ContactForm() {
       >
         {/* Formulario */}
         <div className="md:w-1/2 p-12 flex flex-col justify-center" style={{ background: "#fff" }}>
-          <h3
-            className="text-3xl font-bold mb-8"
-            style={{ color: "var(--color-primary)" }}
-          >
+          <h3 className="text-3xl font-bold mb-8" style={{ color: "var(--color-primary)" }}>
             Contáctanos
           </h3>
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
             {/* Nombre */}
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <User className="h-5 w-5 transition-colors" style={{ color: errors.name ? "#ef4444" : "var(--color-text-soft)" }} />
+                <User
+                  className="h-5 w-5 transition-colors"
+                  style={{ color: errors.name ? "#ef4444" : "var(--color-text-soft)" }}
+                />
               </div>
               <input
                 type="text"
@@ -89,7 +89,10 @@ export default function ContactForm() {
             {/* Email */}
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 transition-colors" style={{ color: errors.email ? "#ef4444" : "var(--color-text-soft)" }} />
+                <Mail
+                  className="h-5 w-5 transition-colors"
+                  style={{ color: errors.email ? "#ef4444" : "var(--color-text-soft)" }}
+                />
               </div>
               <input
                 type="email"
@@ -108,7 +111,10 @@ export default function ContactForm() {
             {/* Mensaje */}
             <div className="relative group">
               <div className="absolute top-4 left-0 pl-4 pointer-events-none">
-                <MessageSquare className="h-5 w-5" style={{ color: errors.message ? "#ef4444" : "var(--color-text-soft)" }} />
+                <MessageSquare
+                  className="h-5 w-5"
+                  style={{ color: errors.message ? "#ef4444" : "var(--color-text-soft)" }}
+                />
               </div>
               <textarea
                 rows={4}
@@ -121,7 +127,9 @@ export default function ContactForm() {
                 }}
                 placeholder="¿En qué podemos ayudarte?"
               />
-              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+              )}
             </div>
 
             <button
@@ -143,23 +151,29 @@ export default function ContactForm() {
         {/* Panel derecho informativo */}
         <div
           className="md:w-1/2 p-12 flex flex-col justify-center relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-2))" }}
+          style={{
+            background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-2))",
+          }}
         >
           <div className="absolute inset-0 opacity-[0.06] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNGRkYiLz48L3N2Zz4=')] bg-repeat" />
           <div className="relative z-10">
-            <h2
-              className="text-4xl font-extrabold mb-6"
-              style={{ color: "var(--color-accent-2)" }}
-            >
+            <h2 className="text-4xl font-extrabold mb-6" style={{ color: "var(--color-accent-2)" }}>
               ¿Tienes dudas? <br /> Hablemos.
             </h2>
-            <p className="mb-8 text-lg leading-relaxed font-medium" style={{ color: "rgba(255,249,240,0.85)" }}>
+            <p
+              className="mb-8 text-lg leading-relaxed font-medium"
+              style={{ color: "rgba(255,249,240,0.85)" }}
+            >
               Estamos aquí para ayudarte a transformar tu restaurante. Escríbenos y un experto de
               nuestro equipo se pondrá en contacto contigo en menos de 24 horas.
             </p>
             <ul className="space-y-5">
               {["Asesoría personalizada", "Demostración gratuita"].map((item) => (
-                <li key={item} className="flex items-center gap-4 text-lg" style={{ color: "var(--color-text-light)" }}>
+                <li
+                  key={item}
+                  className="flex items-center gap-4 text-lg"
+                  style={{ color: "var(--color-text-light)" }}
+                >
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
                     style={{ background: "rgba(217,168,32,0.2)" }}

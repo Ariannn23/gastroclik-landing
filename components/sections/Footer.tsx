@@ -13,10 +13,7 @@ export default function Footer() {
       >
         {/* Marca */}
         <div className="col-span-1 md:col-span-1">
-          <h2
-            className="text-2xl font-extrabold mb-4"
-            style={{ color: "var(--color-accent-2)" }}
-          >
+          <h2 className="text-2xl font-extrabold mb-4" style={{ color: "var(--color-accent-2)" }}>
             GastroClick
           </h2>
           <p className="text-sm leading-relaxed" style={{ color: "rgba(255,249,240,0.7)" }}>
@@ -37,8 +34,12 @@ export default function Footer() {
                   href="#"
                   className="transition-colors"
                   style={{ color: "inherit" }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.75)")}
+                  onMouseEnter={(e) =>
+                    ((e.target as HTMLElement).style.color = "var(--color-accent)")
+                  }
+                  onMouseLeave={(e) =>
+                    ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.75)")
+                  }
                 >
                   {item}
                 </a>
@@ -53,16 +54,25 @@ export default function Footer() {
             Soporte
           </h3>
           <ul className="space-y-3 text-sm" style={{ color: "rgba(255,249,240,0.75)" }}>
-            {["Preguntas Frecuentes", "Términos y Condiciones", "Política de Privacidad"].map((item) => (
-              <li key={item}>
-                <a href="#" className="transition-colors" style={{ color: "inherit" }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.75)")}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            {["Preguntas Frecuentes", "Términos y Condiciones", "Política de Privacidad"].map(
+              (item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="transition-colors"
+                    style={{ color: "inherit" }}
+                    onMouseEnter={(e) =>
+                      ((e.target as HTMLElement).style.color = "var(--color-accent)")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.75)")
+                    }
+                  >
+                    {item}
+                  </a>
+                </li>
+              ),
+            )}
           </ul>
         </div>
 
@@ -95,8 +105,12 @@ export default function Footer() {
               key={social}
               href="#"
               className="transition-colors"
-              onMouseEnter={e => ((e.target as HTMLElement).style.color = "var(--color-accent-2)")}
-              onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.5)")}
+              onMouseEnter={(e) =>
+                ((e.target as HTMLElement).style.color = "var(--color-accent-2)")
+              }
+              onMouseLeave={(e) =>
+                ((e.target as HTMLElement).style.color = "rgba(255,249,240,0.5)")
+              }
             >
               {social}
             </a>

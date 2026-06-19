@@ -7,19 +7,19 @@ import * as THREE from "three";
 
 // ─── QR PATRÓN 13×13 ─────────────────────────────────────────
 const QR_DATA: number[][] = [
-  [1,1,1,1,1,1,1,0,0,1,1,1,1],
-  [1,0,0,0,0,0,1,0,0,0,0,0,1],
-  [1,0,1,1,1,0,1,0,0,1,1,0,1],
-  [1,0,1,1,1,0,1,0,1,1,0,0,1],
-  [1,0,1,1,1,0,1,0,1,0,1,0,1],
-  [1,0,0,0,0,0,1,0,1,0,0,1,1],
-  [1,1,1,1,1,1,1,0,0,0,1,1,0],
-  [0,0,0,0,0,0,0,0,0,1,1,0,0],
-  [0,1,1,1,0,0,1,1,1,0,1,1,0],
-  [1,0,0,0,0,0,0,0,0,0,1,0,1],
-  [1,0,1,1,1,1,0,1,0,1,1,0,0],
-  [1,0,0,0,0,1,0,0,1,0,1,1,1],
-  [1,1,1,1,1,1,1,0,0,1,1,0,1],
+  [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+  [1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1],
+  [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1],
+  [1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
+  [0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+  [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0],
+  [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1],
 ];
 
 const QR_SIZE = 13;
@@ -52,7 +52,8 @@ function QRCode({ zMod }: { zMod: number }) {
         const fBL = x < 5 && y >= QR_SIZE - 5;
 
         if (fTL || fTR || fBL) {
-          let lx = x, ly = y;
+          let lx = x,
+            ly = y;
           if (fTR) lx = x - (QR_SIZE - 5);
           if (fBL) ly = y - (QR_SIZE - 5);
 
@@ -65,14 +66,14 @@ function QRCode({ zMod }: { zMod: number }) {
             <mesh key={`${x}-${y}`} position={[px, py, zMod]}>
               <boxGeometry args={[MOD, MOD, 0.016]} />
               <meshBasicMaterial color={outer ? "#5a1617" : "#d89600"} />
-            </mesh>
+            </mesh>,
           );
         } else {
           result.push(
             <mesh key={`${x}-${y}`} position={[px, py, zMod]}>
               <boxGeometry args={[MOD, MOD, 0.012]} />
               <meshBasicMaterial color="#1a1a1a" />
-            </mesh>
+            </mesh>,
           );
         }
       });
@@ -98,14 +99,29 @@ function QRCard({ zPos }: { zPos: number }) {
 
 // ─── TEXTO ────────────────────────────────────────────────────
 function Bar({
-  x, y, w, h = 0.02, color = "#ffffff", bright = false,
+  x,
+  y,
+  w,
+  h = 0.02,
+  color = "#ffffff",
+  bright = false,
 }: {
-  x: number; y: number; w: number; h?: number; color?: string; bright?: boolean;
+  x: number;
+  y: number;
+  w: number;
+  h?: number;
+  color?: string;
+  bright?: boolean;
 }) {
   return (
     <mesh position={[x, y, 0]}>
       <planeGeometry args={[w, h]} />
-      <meshBasicMaterial color={color} transparent opacity={bright ? 1 : 0.5} side={THREE.DoubleSide} />
+      <meshBasicMaterial
+        color={color}
+        transparent
+        opacity={bright ? 1 : 0.5}
+        side={THREE.DoubleSide}
+      />
     </mesh>
   );
 }
@@ -226,11 +242,21 @@ export default function Scene3D_Menu() {
         <directionalLight position={[3, 5, 5]} intensity={0.8} />
         <Environment preset="city" blur={0.4} />
         <FloatingCard />
-        <Sparkles count={8} scale={[3, 3, 1]} size={0.01} speed={0.04} opacity={0.1} color="#d89600" />
+        <Sparkles
+          count={8}
+          scale={[3, 3, 1]}
+          size={0.01}
+          speed={0.04}
+          opacity={0.1}
+          color="#d89600"
+        />
         <OrbitControls
-          enableZoom={false} enablePan={false}
-          autoRotate autoRotateSpeed={0.35}
-          minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2}
+          enableZoom={false}
+          enablePan={false}
+          autoRotate
+          autoRotateSpeed={0.35}
+          minPolarAngle={Math.PI / 2.2}
+          maxPolarAngle={Math.PI / 2.2}
           rotateSpeed={0.3}
         />
       </Canvas>
